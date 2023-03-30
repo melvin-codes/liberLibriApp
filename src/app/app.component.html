@@ -1,0 +1,31 @@
+<mat-toolbar>
+  <button mat-icon-button [matMenuTriggerFor]="menu" >
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/home">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+    <button mat-menu-item routerLink="/tableView">
+      <mat-icon>table_chart</mat-icon>
+      <span>Table View</span>
+    </button>
+    <button mat-menu-item routerLink="/booksRead">
+      <mat-icon>view_stream</mat-icon>
+      <span>Books Read</span>
+    </button>
+    <button mat-menu-item routerLink="/booksReading">
+      <mat-icon>view_stream</mat-icon>
+      <span>Books Reading</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>code</mat-icon>
+      <span>Random Book Select</span>
+    </button>
+  </mat-menu>
+  
+  <span type="button" routerLink="/home" style="margin-right: 5px;">Liber Libri</span>
+  <mat-icon>library_books</mat-icon>
+</mat-toolbar>
+<router-outlet></router-outlet>

@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 col-sm-3" *ngFor="let book of booksRead" id="cardContainer">
+            <div class="card mb-4" id="cardRow">
+                <img class="card-img-top" src="https://covers.openlibrary.org/b/isbn/{{book.isbn}}-L.jpg">
+                <div class="card-img-overlay" (click)="openModal(book, 'info')" type="button" data-toggle="modal"
+                    data-target="#bookInfoModal">
+                    <span>Click for more info on<br><i>"{{book.bookTitle}}"</i></span>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--EDIT BOOK MODAL-->
+    <div *ngIf="infoModalBox" class="modal bg-dark fade" id="bookInfoModal" tabindex="-1" aria-labelledby="bookInfoModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="container" id="modalContainer">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="bookInfoModalLabel">Book Info for <i>"{{infoBook.bookTitle}}"</i></h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-img-top" style="text-align: center">
+                                    <img src="https://covers.openlibrary.org/b/isbn/{{infoBook.isbn}}-L.jpg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-8"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
