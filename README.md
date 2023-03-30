@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## How to Run
 1) First make sure you have node.js installed on your machine.
 2) After that is done and you have finished cloning the repository. You then want to open a terimal and run "npm install". Once that is finished you then run "npm install -g @angular/cli"
-3) In the service folder you will find the apiUrl change it as needed.
+3) In the service folder you will find the apiUrl change it as needed. To make sure it connects to your database/RESTful api
 
 
 ## Development server
