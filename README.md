@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
 
+## How to Run
+1) First make sure you have node.js installed on your machine.
+2) After that is done and you have finished cloning the repository. You then want to open a terimal and run "npm install". Once that is finished you then run "npm install -g @angular/cli"
+3) In the service folder you will find the apiUrl change it as needed.
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
