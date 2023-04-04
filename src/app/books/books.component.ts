@@ -103,6 +103,11 @@ export class BooksComponent implements OnInit {
       })
   }
 
+  clearForm(addForm: NgForm): void {
+    document.getElementById('add-book-form').click();
+    addForm.reset();
+  }
+
   //UPDATE BOOK
   onUpdateBook(book: Book): void {
     this.bookService.update(book)
@@ -152,6 +157,34 @@ export class BooksComponent implements OnInit {
       this.infoBook = book;
       this.infoModalBox = true;
     }
+  }
+
+  searchBooks(key: string): void {
+    console.log(key);
+    const results: Book[] = [];
+    for(const book of this.books) {
+      if (book.bookTitle.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || book.author.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || book.genre.toLocaleLowerCase().indexOf(key.toLowerCase()) !== -1
+      || String(book.stillReading).toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || book.isbn.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || book.id.toString().toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(book);
+      }
+    }
+    this.books = results;
+    if(results.length === 0 || !key) {
+      this.getAllBooks();
+    }
+  }
+  progress:any;
+  getProgress(book: Book): any {
+    if(book.pagesRead === 0) {
+      this.progress = "0"
+    } else {
+      this.progress = (book.pagesRead / book.pages) * 100;
+    }
+    return this.progress;
   }
 
   genreType = Object.values(Genre);

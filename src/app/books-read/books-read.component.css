@@ -1,8 +1,14 @@
 img {
     height: 20rem;
+    border: black;
 }
 .card {
     width: 15rem;
+    border: none;
+}
+
+#modalCard {
+    height: 20rem;
 }
 
 #cardRow {
@@ -18,7 +24,7 @@ img {
 }
 
 #modalContainer {
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 /* CARD HOVER */
@@ -60,3 +66,12 @@ img {
     text-align: center;
 }
 
+/* MODAL STYLING */
+#infoImage {
+    height: 20rem;
+    width: 15rem;
+}
+
+.modal-body .card {
+    width:auto;
+}

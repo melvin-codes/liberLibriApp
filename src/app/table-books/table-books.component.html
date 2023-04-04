@@ -1,7 +1,10 @@
 <div class="container-fluid" id="main-container">
     <div class="button-container text-center">
         <!--Add click function-->
-        <button mat-raised-button class="button">Add Book<mat-icon class="float-right">note_add</mat-icon></button>
+        <button type="button" (click)="openModal(null, 'add')" data-toggle="modal" data-target="#addBook" mat-raised-button class="button">Add Book<mat-icon class="float-right">note_add</mat-icon></button>
+        <form class="form-inline" id="search">
+            <input type="search" (ngModelChange)="searchBooks(key.value)" id="searchName" class="form-control" #key="ngModel" ngModel name="key" placeholder="Search books..." required>
+        </form>
     </div>
     <div class="table-responsive">
         <table class="table table-dark table-hover">
@@ -27,7 +30,7 @@
                     <td>{{book.yearPublished}}</td>
                     <td>{{book.isbn}}</td>
                     <td>{{book.genre}}</td>
-                    <td>{{book.stillReading}}</td>
+                    <td>{{book.stillReading | stillReadingPipe}}</td>
                     <td>{{book.pagesRead}}</td>
                     <td>{{book.pages}}</td>
                     <td><button type="button" (click)="openModal(book, 'edit')"
@@ -85,7 +88,6 @@
                                 class="form-control" placeholder="Year Published">
                         </div>
                         <div class="form-group">
-                            <!-- <label>Still Reading?</label> -->
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" [(ngModel)]="editBook.stillReading"
                                     id="stillReading" name="stillReading" [value]="true">
@@ -151,4 +153,75 @@
         </div>
     </div>
 
+    <!--ADD BOOK MODAL-->
+    <div *ngIf="addModalBox" class="modal fade" id="addBook" tabindex="-1" role="dialog" aria-labelledby="addBookLabel"
+        data-toggle="modal" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="text-align: center;">
+                    <h3 class="modal-title" id="addBookLabel" >Add Book</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><mat-icon>close</mat-icon></span>
+                    </button>
+                </div>
+                <div class="modal-body" id="addForm">
+                    <form #addForm="ngForm" (ngSubmit)="onAddBook(addForm)">
+                        <div class="row">
+                            <div class="col">
+                                <label for="bookTitle">Book Title:</label>
+                                <input type="text" ngModel name="bookTitle" class="form-control" id="bookTitle" placeholder="The Hobbit" required>
+                            </div>
+                            <div class="col">
+                                <label for="author">Author:</label>
+                                <input type="text" ngModel name="author" class="form-control" id="author" placeholder="J.R.R. Tolkien" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="isbn">ISBN:</label>
+                                <input type="tel" maxlength="13" ngModel name="isbn" class="form-control" id="isbn" placeholder="9780547928241" required>
+                            </div>
+                            <div class="col">
+                                <label for="yearPublished">Year Published:</label>
+                                <input type="tel" maxlength="4" ngModel name="yearPublished" class="form-control" id="yearPublished" placeholder="2012" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="pagesRead">Pages Read:</label>
+                                <input type="tel" maxlength="5" ngModel name="pagesRead" class="form-control" id="pagesRead" placeholder="320" required>
+                            </div>
+                            <div class="col">
+                                <label for="pages">Number of Pages:</label>
+                                <input type="tel" maxlength="5" ngModel name="pages" class="form-control" id="pages" placeholder="320" required>
+                            </div>
+                        </div>
+                        <div class="row" style="text-align: center;">
+                            <div class="col">
+                                <label for="genre" class="float-left">Genre:</label>
+                                <select class="form-control" id="genre" ngModel name="genre">
+                                    <option name="genre" *ngFor="let genre of genreType">{{genre}}</option>
+                                </select>
+                            </div>
+                            <div class="col" style="justify-content:center;" >
+                                <label class="float-left">Still Reading:</label>
+                                <div class="form-check form-check-inline" id="still">
+                                    <input class="form-check-input" type="radio" ngModel name="stillReading" id="stillReading" value="true" required>
+                                    <label class="form-check-label" for="stillReading">True</label>
+                                </div>
+                                <div class="form-check form-check-inline" id="still">
+                                    <input class="form-check-input" type="radio" ngModel name="stillReading" id="stillReading2" value="false" required>
+                                    <label class="form-check-label" for="stillReading2">False</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="add-book-form" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Add Book</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

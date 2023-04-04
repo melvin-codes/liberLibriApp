@@ -1,3 +1,4 @@
+<!--HOME VIEW-->
 <div class="container text-center" id="main-container">
     <div class="jumbotron ">
         <h1>Liber Libri</h1>
@@ -14,55 +15,68 @@
         data-toggle="modal" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
+                <!--MODAL HEADER-->
                 <div class="modal-header" style="text-align: center;">
                     <h3 class="modal-title" id="addBookLabel" >Add Book</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" (click)="clearForm(addForm)" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"><mat-icon>close</mat-icon></span>
                     </button>
                 </div>
+                <!--MODAL BODY-->
                 <div class="modal-body">
                     <form #addForm="ngForm" (ngSubmit)="onAddBook(addForm)">
+                        <!--ROW 1-->
                         <div class="row">
+                            <!--BOOK TITLE-->
                             <div class="col">
                                 <label for="bookTitle">Book Title:</label>
                                 <input type="text" ngModel name="bookTitle" class="form-control" id="bookTitle" placeholder="The Hobbit" required>
                             </div>
+                            <!---->
                             <div class="col">
                                 <label for="author">Author:</label>
                                 <input type="text" ngModel name="author" class="form-control" id="author" placeholder="J.R.R. Tolkien" required>
                             </div>
                         </div>
+                        <!--ROW 2-->
                         <div class="row">
+                            <!--ISBN-->
                             <div class="col">
                                 <label for="isbn">ISBN:</label>
                                 <input type="tel" maxlength="13" ngModel name="isbn" class="form-control" id="isbn" placeholder="9780547928241" required>
                             </div>
+                            <!--YEAR PUBLISHED-->
                             <div class="col">
                                 <label for="yearPublished">Year Published:</label>
                                 <input type="tel" maxlength="4" ngModel name="yearPublished" class="form-control" id="yearPublished" placeholder="2012" required>
                             </div>
                         </div>
+                        <!--ROW 3-->
                         <div class="row">
+                            <!--PAGES READ-->
                             <div class="col">
                                 <label for="pagesRead">Pages Read:</label>
                                 <input type="tel" maxlength="5" ngModel name="pagesRead" class="form-control" id="pagesRead" placeholder="320" required>
                             </div>
+                            <!--NUMBER OF PAGES-->
                             <div class="col">
                                 <label for="pages">Number of Pages:</label>
                                 <input type="tel" maxlength="5" ngModel name="pages" class="form-control" id="pages" placeholder="320" required>
                             </div>
                         </div>
+                        <!--ROW 4-->
                         <div class="row" style="text-align: center;">
+                            <!--GENRE-->
                             <div class="col">
-                                <label for="genre">Genre:</label>
-                                <select class="form-control" id="genre" ngModel name="genre">
+                                <label for="genre" class="float-left">Genre:</label>
+                                <select class="form-control"  id="genre" ngModel name="genre">
                                     <option name="genre" *ngFor="let genre of genreType">{{genre}}</option>
                                 </select>
                             </div>
+                            <!--STILL READING?-->
                             <div class="col" >
-                                <!-- <label style="padding-right: 10px">Still Reading:</label> -->
+                                <label class="float-left">Still Reading:</label>
                                 <div class="form-check form-check-inline" id="still">
-                                    
                                     <input class="form-check-input" type="radio" ngModel name="stillReading" id="stillReading" value="true" required>
                                     <label class="form-check-label" for="stillReading">True</label>
                                 </div>
@@ -70,11 +84,11 @@
                                     <input class="form-check-input" type="radio" ngModel name="stillReading" id="stillReading2" value="false" required>
                                     <label class="form-check-label" for="stillReading2">False</label>
                                 </div>
-
                             </div>
                         </div>
+                        <!--MODAL FOOTER WITH FUNCTIONS-->
                         <div class="modal-footer">
-                            <button type="button" id="add-book-form" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" (click)="clearForm(addForm)" id="add-book-form" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                             <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Add Book</button>
                         </div>
                     </form>

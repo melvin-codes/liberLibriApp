@@ -10,6 +10,8 @@
   margin-left: 8px;
 }
 
+
+
 .form-group {
   margin-bottom: 5px;
 }
@@ -20,5 +22,21 @@ input {
 
 td {
   vertical-align: middle;
+}
+
+.form col {
+  margin-bottom: 10px;
+}
+
+.row {
+  margin-top: 10px;
+}
+
+#still {
+  margin-top: 32px;
+}
+
+.modal-footer {
+  margin-top: 10px;
 }
 

@@ -18,22 +18,11 @@ export class TableBooksComponent extends BooksComponent implements OnInit {
 
   
 
-  progress: any;
-
-  
-
   //SORTING
   sortTitle() {
       this.books.sort((a,b) => (a.bookTitle > b.bookTitle) ? 1 : -1);
   }
 
-  getProgress(book: Book): any {
-    if(book.pagesRead === 0) {
-      this.progress = "0"
-    } else {
-      this.progress = (book.pagesRead / book.pages) * 100;
-    }
-    return this.progress;
-  }
+  
 
 }

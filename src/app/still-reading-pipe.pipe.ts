@@ -5,13 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class StillReadingPipePipe implements PipeTransform {
 
-  transform(value: string): string {
-    if(value === "1") {
-      return "true"
-    } else if(value === "0") {
-      return "false";
+  transform(value: boolean): string {
+    if(value) {
+      return "Yes"
+    } else {
+      return "No"
     }
-    return null;
   }
 
 }
