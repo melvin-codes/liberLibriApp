@@ -30,6 +30,18 @@ export class BooksComponent implements OnInit {
     this.getAllBooks();
   }
 
+  refreshBooks(stillReading: boolean) {
+    if(stillReading) {
+      this.booksReading = [];
+      this.getBooksReading();
+      window.location.reload();
+    } else {
+      this.booksRead = [];
+      this.getBooksRead();
+      window.location.reload();
+    }
+  }
+
   //GET ALL BOOKS
   getAllBooks(): void {
     this.bookService.getAll().subscribe({
@@ -51,8 +63,8 @@ export class BooksComponent implements OnInit {
             this.booksReading.push(response[i]);
           }
         }
-
-        console.log("Reading" + this.booksReading);
+        console.log("Reading:");
+        console.log(this.booksReading);
       }
     })
   }

@@ -1,0 +1,27 @@
+.col {
+    text-align: center;
+    margin-top: 15px;
+}
+.row {
+    justify-content: center;
+    text-align: center;
+}
+p {
+    color: whitesmoke;
+    margin-top: 10px;
+    font-size: 20px;
+}
+.card {
+    width: 400px;
+    text-align: center;
+    justify-content: center;
+}
+.card-text {
+    color: black;
+}
+
+img {
+    height: 17rem;
+    width: 15rem;
+    right: 200px;
+}

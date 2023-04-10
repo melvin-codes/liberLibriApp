@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <button mat-raised-button (click)="getRandomBook()">Get Random Book</button>
+            <p>Don't know what to read or finish reading? Just click the button and let it be destiny</p>
+            <br>
+        </div>
+    </div>
+    <div class="row" *ngIf="visibility">
+        <div class="card">
+            <div class="card-header">
+                <img class="card-img-top" src="https://covers.openlibrary.org/b/isbn/{{randomBook.isbn}}-L.jpg">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">{{randomBook.bookTitle}}</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="visibility === false">
+        <h1>No Books Found</h1>
+    </div>
+</div>

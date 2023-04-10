@@ -23,6 +23,7 @@ import { HomeComponent } from './home/home.component';
 import { BooksReadingComponent } from './books-reading/books-reading.component';
 import { BookService } from './service/book.service';
 import { StillReadingPipePipe } from './still-reading-pipe.pipe';
+import { RandomComponent } from './random/random.component';
 
 
 
@@ -36,6 +37,7 @@ import { StillReadingPipePipe } from './still-reading-pipe.pipe';
     HomeComponent,
     BooksReadingComponent,
     StillReadingPipePipe,
+    RandomComponent,
   ],
   imports: [
     BrowserModule,
