@@ -14,3 +14,7 @@
 .row {
     margin-top: 10px;
 }
+
+#main-container {
+    font-size: large;
+}

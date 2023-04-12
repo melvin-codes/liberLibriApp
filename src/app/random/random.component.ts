@@ -10,7 +10,7 @@ import { Book } from '../interface/book';
 export class RandomComponent extends BooksComponent implements OnInit {
   randomBook: Book;
   visibility: boolean;
-  checker: number = 0;
+  checker: number;
   override ngOnInit() {
     this.getBooksReading();
   }
@@ -26,6 +26,7 @@ export class RandomComponent extends BooksComponent implements OnInit {
         while(this.checker === i) {
           i = Math.floor(Math.random() * this.booksReading.length);
         }
+        this.checker = i;
         this.randomBook = this.booksReading.at(i);
         this.visibility = true;
       }
